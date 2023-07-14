@@ -117,7 +117,7 @@ async function startup() {
     var cardImg = cE('img');
     cardBody.appendChild(cardImg);
     cardImg.className = 'card-bg';
-    cardImg.setAttribute('src', '/assets/cards/icon/proseka/' + card[0] + '.jpg');
+    cardImg.setAttribute('src', 'https://koza.rip/assets/cards/icon/proseka/' + card[0] + '.jpg');
 
     var cardFrame = cE('div');
     cardBody.appendChild(cardFrame);
