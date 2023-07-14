@@ -1,0 +1,217 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+div * {
+  position: relative;
+}
+
+nav {
+  margin-bottom: 1rem;
+}
+
+nav .brand-icon {
+  max-height: 100px;
+}
+
+.card-body {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.card-container {
+  text-align: center;
+}
+
+.card-body {
+  display: inline-block;
+}
+
+#proseka-cards > a > div > img {
+  width: 75px;
+  height: 75px;
+  position: relative;
+  top: 3px;
+  left: 3px;
+  border-radius: 10px;
+}
+
+.frame-1 {
+  background: url(/assets/proseka/card-1.png);
+  background-size: 100% 100%;
+}
+
+.frame-2 {
+  background: url(/assets/proseka/card-2.png);
+  background-size: 100% 100%;
+}
+
+.frame-3 {
+  background: url(/assets/proseka/card-3.png);
+  background-size: 100% 100%;
+}
+
+.frame-4 {
+  background: url(/assets/proseka/card-4.png);
+  background-size: 100% 100%;
+}
+
+.frame-bd {
+  background: url(/assets/proseka/card-bd.png);
+  background-size: 100% 100%;
+}
+
+.card-frame {
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  left: 0;
+  top: 0;
+}
+
+/* attributes */
+.attr-cool {
+  background: url(/assets/proseka/cool.png);
+  background-size: 100% 100%;
+}
+
+.attr-cute {
+  background: url(/assets/proseka/cute.png);
+  background-size: 100% 100%;
+}
+
+.attr-happy {
+  background: url(/assets/proseka/happy.png);
+  background-size: 100% 100%;
+}
+
+.attr-mysterious {
+  background: url(/assets/proseka/mysterious.png);
+  background-size: 100% 100%;
+}
+
+.attr-pure {
+  background: url(/assets/proseka/pure.png);
+  background-size: 100% 100%;
+}
+
+.card-attr {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 1%;
+  left: 1%;
+}
+
+/* stars */
+.card-star {
+  width: 12.5px;
+  height: 12.5px;
+  position: absolute;
+  left: 7%;
+}
+
+.star-pos-1 {
+  top: 80%;
+}
+
+.star-pos-2 {
+  top: 80%;
+  left: 27%;
+}
+
+.star-pos-3 {
+  top: 80%;
+  left: 47%;
+}
+
+.star-pos-4 {
+  top: 80%;
+  left: 67%;
+}
+
+.star {
+  background: url(/assets/proseka/star.png);
+  background-size: 100% 100%;
+}
+
+.star-normal {
+  background: url(/assets/proseka/star_normal.png);
+  background-size: 100% 100%;
+}
+
+.birthday-pos {
+  top: 80%;
+}
+
+.birthday {
+  background: url(/assets/proseka/birthday.png);
+  background-size: 100% 100%;
+}
+
+.card-cover {
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  left: 0;
+  top: 0;
+}
+
+.card-fade {
+  position: absolute;
+  background: rgba(0,0,0,.5);
+  width: 78px;
+  height: 78px;
+  left: 0;
+  top: 0;
+}
+
+.icon {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+img {
+height: auto;
+max-width: 100%;
+}
+
+th, td {
+  cursor: pointer;
+}
+
+.unit-table th, td {
+  width: calc(90% / 4);
+}
+
+.vs-table th, td {
+  width: calc(90% / 6);
+}
+
+th:first-child {
+  width: 10%;
+}
+
+.nav {
+  margin-bottom: 0.5rem;
+}
+
+.table-light {
+  --bs-table-bg: rgba(248, 249, 250, 0.5);
+}
+
+.rarity-img {
+  width: 25px;
+  height: 25px;
+  margin-right: 2px;
+}

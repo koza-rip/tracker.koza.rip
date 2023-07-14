@@ -1,0 +1,11 @@
+# ignore all image files
+*.png
+*.jpg
+*.webp
+*.svg
+*.ico
+
+# ignore directories
+cards/proseka/i/
+cd/bandori/i/
+cd/proseka/i/

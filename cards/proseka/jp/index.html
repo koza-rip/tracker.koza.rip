@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project SEKAI Card Tracker (JP) - KOZA.RIP</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href="../custom.css" rel="stylesheet">
+
+  <link rel="icon" href="https://koza.rip/assets/Icon-Black.png">
+
+  <script type="text/javascript" src="https://sorter.koza.rip/js/sekai_viewer_api.js"></script>
+  <script type="text/javascript" src="https://sorter.koza.rip/js/globals.js"></script>
+  <script src="../js/cardsjp.min.js"></script>
+</head>
+
+<body onload="startup()" style="background-image: url('/assets/bg/proseka.png'); background-color: #c46b9b; background-position: top left; background-size: initial; background-repeat: repeat;">
+  <nav class="navbar bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light" href="https://koza.rip"><img class="brand-icon d-inline-block align-text-top" src="https://koza.rip/assets/Logo-White.png" alt=""></a>
+      <div class="container text-center">
+        <span class="text-light"><h1>Project SEKAI Card Tracker (JP)</h1></span>
+      </div>
+      <a class="btn btn-light" role="button" href="https://koza.rip/trackers/cards/proseka/en/">EN Version</a>
+    </div>
+  </nav>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <ul class="nav nav-tabs nav-justified" id="unit-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active text-dark" id="leoni-tab" data-bs-toggle="tab" data-bs-target="#leoni-tab-pane" type="button" role="tab" aria-controls="leoni-tab-pane" aria-selected="true">Leo/need</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-dark" id="mmj-tab" data-bs-toggle="tab" data-bs-target="#mmj-tab-pane" type="button" role="tab" aria-controls="mmj-tab-pane" aria-selected="false">MORE MORE JUMP!</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-dark" id="vbs-tab" data-bs-toggle="tab" data-bs-target="#vbs-tab-pane" type="button" role="tab" aria-controls="vbs-tab-pane" aria-selected="false">Vivid BAD SQUAD</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-dark" id="wxs-tab" data-bs-toggle="tab" data-bs-target="#wxs-tab-pane" type="button" role="tab" aria-controls="wxs-tab-pane" aria-selected="false">Wonderlands&times;Showtime</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-dark" id="niigo-tab" data-bs-toggle="tab" data-bs-target="#niigo-tab-pane" type="button" role="tab" aria-controls="niigo-tab-pane" aria-selected="false">Nightcord at 25:00</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-dark" id="vs-tab" data-bs-toggle="tab" data-bs-target="#vs-tab-pane" type="button" role="tab" aria-controls="vs-tab-pane" aria-selected="false">Virtual Singer</button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="unit-tab-content">
+          <div class="tab-pane fade show active" id="leoni-tab-pane" role="tabpanel" aria-labelledby="leoni-tab" tabindex="0">
+            <div class="row">
+              <div class="col">
+                <table class="table table-bordered table-sm align-middle unit-table">
+                  <thead>
+                    <tr>
+                      <th id="leoni" scope="col"><span class="icon align-middle"><img src="../i/icon/leoni.png" alt=""></span></th>
+                      <th id="ichika" scope="col"><span class="icon align-middle"><img src="../i/icon/1.png" alt=""></span></th>
+                      <th id="saki" scope="col"><span class="icon align-middle"><img src="../i/icon/2.png" alt=""></span></th>
+                      <th id="honami" scope="col"><span class="icon align-middle"><img src="../i/icon/3.png" alt=""></span></th>
+                      <th id="shiho" scope="col"><span class="icon align-middle"><img src="../i/icon/4.png" alt=""></span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="ln-cool" scope="row"><span class="icon align-middle"><img src="../i/icon/cool.png" alt=""></span></th>
+                      <td id="cool-ichika" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-saki" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-honami" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-shiho" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="ln-cute" scope="row"><span class="icon align-middle"><img src="../i/icon/cute.png" alt=""></span></th>
+                      <td id="cute-ichika" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-saki" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-honami" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-shiho" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="ln-happy" scope="row"><span class="icon align-middle"><img src="../i/icon/happy.png" alt=""></span></th>
+                      <td id="happy-ichika" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-saki" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-honami" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-shiho" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="ln-mysterious" scope="row"><span class="icon align-middle"><img src="../i/icon/mysterious.png" alt=""></span></th>
+                      <td id="mysterious-ichika" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-saki" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-honami" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-shiho" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="ln-pure" scope="row"><span class="icon align-middle"><img src="../i/icon/pure.png" alt=""></span></th>
+                      <td id="pure-ichika" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-saki" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-honami" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-shiho" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="col">
+                <table class="table table-bordered table-sm align-middle vs-table">
+                  <thead>
+                    <tr>
+                      <th id="leoni-vs" scope="col"><span class="icon align-middle"><img src="../i/icon/leoni.png" alt=""></span><span class="icon align-middle"><img src="../i/icon/vs.png" alt=""></span></th>
+                      <th id="ln-miku" scope="col"><span class="icon align-middle"><img src="../i/icon/21.png" alt=""></span></th>
+                      <th id="ln-rin" scope="col"><span class="icon align-middle"><img src="../i/icon/22.png" alt=""></span></th>
+                      <th id="ln-len" scope="col"><span class="icon align-middle"><img src="../i/icon/23.png" alt=""></span></th>
+                      <th id="ln-luka" scope="col"><span class="icon align-middle"><img src="../i/icon/24.png" alt=""></span></th>
+                      <th id="ln-meiko" scope="col"><span class="icon align-middle"><img src="../i/icon/25.png" alt=""></span></th>
+                      <th id="ln-kaito" scope="col"><span class="icon align-middle"><img src="../i/icon/26.png" alt=""></span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="ln-vs-cool" scope="row"><span class="icon align-middle"><img src="../i/icon/cool.png" alt=""></span></th>
+                      <td id="cool-ln-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-ln-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-ln-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-ln-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-ln-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-ln-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="ln-vs-cute" scope="row"><span class="icon align-middle"><img src="../i/icon/cute.png" alt=""></span></th>
+                      <td id="cute-ln-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-ln-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-ln-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-ln-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-ln-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-ln-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="ln-vs-happy" scope="row"><span class="icon align-middle"><img src="../i/icon/happy.png" alt=""></span></th>
+                      <td id="happy-ln-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-ln-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-ln-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-ln-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-ln-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-ln-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="ln-vs-mysterious" scope="row"><span class="icon align-middle"><img src="../i/icon/mysterious.png" alt=""></span></th>
+                      <td id="mysterious-ln-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-ln-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-ln-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-ln-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-ln-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-ln-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="ln-vs-pure" scope="row"><span class="icon align-middle"><img src="../i/icon/pure.png" alt=""></span></th>
+                      <td id="pure-ln-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-ln-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-ln-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-ln-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-ln-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-ln-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="mmj-tab-pane" role="tabpanel" aria-labelledby="mmj-tab" tabindex="0">
+            <div class="row">
+              <div class="col">
+                <table class="table table-bordered table-sm align-middle unit-table">
+                  <thead>
+                    <tr>
+                      <th id="mmj" scope="col"><span class="icon align-middle"><img src="../i/icon/mmj.png" alt=""></span></th>
+                      <th id="minori" scope="col"><span class="icon align-middle"><img src="../i/icon/5.png" alt=""></span></th>
+                      <th id="haruka" scope="col"><span class="icon align-middle"><img src="../i/icon/6.png" alt=""></span></th>
+                      <th id="airi" scope="col"><span class="icon align-middle"><img src="../i/icon/7.png" alt=""></span></th>
+                      <th id="shizuku" scope="col"><span class="icon align-middle"><img src="../i/icon/8.png" alt=""></span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="mmj-cool" scope="row"><span class="icon align-middle"><img src="../i/icon/cool.png" alt=""></span></th>
+                      <td id="cool-minori" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-haruka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-airi" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-shizuku" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="mmj-cute" scope="row"><span class="icon align-middle"><img src="../i/icon/cute.png" alt=""></span></th>
+                      <td id="cute-minori" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-haruka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-airi" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-shizuku" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="mmj-happy" scope="row"><span class="icon align-middle"><img src="../i/icon/happy.png" alt=""></span></th>
+                      <td id="happy-minori" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-haruka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-airi" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-shizuku" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="mmj-mysterious" scope="row"><span class="icon align-middle"><img src="../i/icon/mysterious.png" alt=""></span></th>
+                      <td id="mysterious-minori" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-haruka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-airi" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-shizuku" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="mmj-pure" scope="row"><span class="icon align-middle"><img src="../i/icon/pure.png" alt=""></span></th>
+                      <td id="pure-minori" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-haruka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-airi" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-shizuku" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="col">
+                <table class="table table-bordered table-sm align-middle vs-table">
+                  <thead>
+                    <tr>
+                      <th id="mmj-vs" scope="col"><span class="icon align-middle"><img src="../i/icon/mmj.png" alt=""></span><span class="icon align-middle"><img src="../i/icon/vs.png" alt=""></span></th>
+                      <th id="mmj-miku" scope="col"><span class="icon align-middle"><img src="../i/icon/21.png" alt=""></span></th>
+                      <th id="mmj-rin" scope="col"><span class="icon align-middle"><img src="../i/icon/22.png" alt=""></span></th>
+                      <th id="mmj-len" scope="col"><span class="icon align-middle"><img src="../i/icon/23.png" alt=""></span></th>
+                      <th id="mmj-luka" scope="col"><span class="icon align-middle"><img src="../i/icon/24.png" alt=""></span></th>
+                      <th id="mmj-meiko" scope="col"><span class="icon align-middle"><img src="../i/icon/25.png" alt=""></span></th>
+                      <th id="mmj-kaito" scope="col"><span class="icon align-middle"><img src="../i/icon/26.png" alt=""></span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="mmj-vs-cool" scope="row"><span class="icon align-middle"><img src="../i/icon/cool.png" alt=""></span></th>
+                      <td id="cool-mmj-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-mmj-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-mmj-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-mmj-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-mmj-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-mmj-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="mmj-vs-cute" scope="row"><span class="icon align-middle"><img src="../i/icon/cute.png" alt=""></span></th>
+                      <td id="cute-mmj-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-mmj-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-mmj-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-mmj-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-mmj-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-mmj-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="mmj-vs-happy" scope="row"><span class="icon align-middle"><img src="../i/icon/happy.png" alt=""></span></th>
+                      <td id="happy-mmj-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-mmj-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-mmj-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-mmj-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-mmj-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-mmj-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="mmj-vs-mysterious" scope="row"><span class="icon align-middle"><img src="../i/icon/mysterious.png" alt=""></span></th>
+                      <td id="mysterious-mmj-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-mmj-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-mmj-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-mmj-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-mmj-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-mmj-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="mmj-vs-pure" scope="row"><span class="icon align-middle"><img src="../i/icon/pure.png" alt=""></span></th>
+                      <td id="pure-mmj-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-mmj-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-mmj-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-mmj-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-mmj-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-mmj-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="vbs-tab-pane" role="tabpanel" aria-labelledby="vbs-tab" tabindex="0">
+            <div class="row">
+              <div class="col">
+                <table class="table table-bordered table-sm align-middle unit-table">
+                  <thead>
+                    <tr>
+                      <th id="vbs" scope="col"><span class="icon align-middle"><img src="../i/icon/vbs.png" alt=""></span></th>
+                      <th id="kohane" scope="col"><span class="icon align-middle"><img src="../i/icon/9.png" alt=""></span></th>
+                      <th id="an" scope="col"><span class="icon align-middle"><img src="../i/icon/10.png" alt=""></span></th>
+                      <th id="akito" scope="col"><span class="icon align-middle"><img src="../i/icon/11.png" alt=""></span></th>
+                      <th id="toya" scope="col"><span class="icon align-middle"><img src="../i/icon/12.png" alt=""></span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="vbs-cool" scope="row"><span class="icon align-middle"><img src="../i/icon/cool.png" alt=""></span></th>
+                      <td id="cool-kohane" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-an" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-akito" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-toya" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="vbs-cute" scope="row"><span class="icon align-middle"><img src="../i/icon/cute.png" alt=""></span></th>
+                      <td id="cute-kohane" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-an" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-akito" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-toya" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="vbs-happy" scope="row"><span class="icon align-middle"><img src="../i/icon/happy.png" alt=""></span></th>
+                      <td id="happy-kohane" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-an" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-akito" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-toya" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="vbs-mysterious" scope="row"><span class="icon align-middle"><img src="../i/icon/mysterious.png" alt=""></span></th>
+                      <td id="mysterious-kohane" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-an" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-akito" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-toya" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="vbs-pure" scope="row"><span class="icon align-middle"><img src="../i/icon/pure.png" alt=""></span></th>
+                      <td id="pure-kohane" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-an" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-akito" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-toya" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="col">
+                <table class="table table-bordered table-sm align-middle vs-table">
+                  <thead>
+                    <tr>
+                      <th id="vbs-vs" scope="col"><span class="icon align-middle"><img src="../i/icon/vbs.png" alt=""></span><span class="icon align-middle"><img src="../i/icon/vs.png" alt=""></span></th>
+                      <th id="vbs-miku" scope="col"><span class="icon align-middle"><img src="../i/icon/21.png" alt=""></span></th>
+                      <th id="vbs-rin" scope="col"><span class="icon align-middle"><img src="../i/icon/22.png" alt=""></span></th>
+                      <th id="vbs-len" scope="col"><span class="icon align-middle"><img src="../i/icon/23.png" alt=""></span></th>
+                      <th id="vbs-luka" scope="col"><span class="icon align-middle"><img src="../i/icon/24.png" alt=""></span></th>
+                      <th id="vbs-meiko" scope="col"><span class="icon align-middle"><img src="../i/icon/25.png" alt=""></span></th>
+                      <th id="vbs-kaito" scope="col"><span class="icon align-middle"><img src="../i/icon/26.png" alt=""></span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="vbs-vs-cool" scope="row"><span class="icon align-middle"><img src="../i/icon/cool.png" alt=""></span></th>
+                      <td id="cool-vbs-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-vbs-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-vbs-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-vbs-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-vbs-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-vbs-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="vbs-vs-cute" scope="row"><span class="icon align-middle"><img src="../i/icon/cute.png" alt=""></span></th>
+                      <td id="cute-vbs-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-vbs-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-vbs-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-vbs-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-vbs-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-vbs-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="vbs-vs-happy" scope="row"><span class="icon align-middle"><img src="../i/icon/happy.png" alt=""></span></th>
+                      <td id="happy-vbs-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-vbs-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-vbs-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-vbs-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-vbs-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-vbs-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="vbs-vs-mysterious" scope="row"><span class="icon align-middle"><img src="../i/icon/mysterious.png" alt=""></span></th>
+                      <td id="mysterious-vbs-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-vbs-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-vbs-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-vbs-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-vbs-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-vbs-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="vbs-vs-pure" scope="row"><span class="icon align-middle"><img src="../i/icon/pure.png" alt=""></span></th>
+                      <td id="pure-vbs-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-vbs-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-vbs-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-vbs-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-vbs-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-vbs-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="wxs-tab-pane" role="tabpanel" aria-labelledby="wxs-tab" tabindex="0">
+            <div class="row">
+              <div class="col">
+                <table class="table table-bordered table-sm align-middle unit-table">
+                  <thead>
+                    <tr>
+                      <th id="wxs" scope="col"><span class="icon align-middle"><img src="../i/icon/wxs.png" alt=""></span></th>
+                      <th id="tsukasa" scope="col"><span class="icon align-middle"><img src="../i/icon/13.png" alt=""></span></th>
+                      <th id="emu" scope="col"><span class="icon align-middle"><img src="../i/icon/14.png" alt=""></span></th>
+                      <th id="nene" scope="col"><span class="icon align-middle"><img src="../i/icon/15.png" alt=""></span></th>
+                      <th id="rui" scope="col"><span class="icon align-middle"><img src="../i/icon/16.png" alt=""></span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="wxs-cool" scope="row"><span class="icon align-middle"><img src="../i/icon/cool.png" alt=""></span></th>
+                      <td id="cool-tsukasa" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-emu" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-nene" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-rui" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="wxs-cute" scope="row"><span class="icon align-middle"><img src="../i/icon/cute.png" alt=""></span></th>
+                      <td id="cute-tsukasa" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-emu" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-nene" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-rui" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="wxs-happy" scope="row"><span class="icon align-middle"><img src="../i/icon/happy.png" alt=""></span></th>
+                      <td id="happy-tsukasa" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-emu" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-nene" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-rui" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="wxs-mysterious" scope="row"><span class="icon align-middle"><img src="../i/icon/mysterious.png" alt=""></span></th>
+                      <td id="mysterious-tsukasa" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-emu" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-nene" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-rui" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="wxs-pure" scope="row"><span class="icon align-middle"><img src="../i/icon/pure.png" alt=""></span></th>
+                      <td id="pure-tsukasa" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-emu" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-nene" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-rui" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="col">
+                <table class="table table-bordered table-sm align-middle vs-table">
+                  <thead>
+                    <tr>
+                      <th id="wxs-vs" scope="col"><span class="icon align-middle"><img src="../i/icon/wxs.png" alt=""></span><span class="icon align-middle"><img src="../i/icon/vs.png" alt=""></span></th>
+                      <th id="wxs-miku" scope="col"><span class="icon align-middle"><img src="../i/icon/21.png" alt=""></span></th>
+                      <th id="wxs-rin" scope="col"><span class="icon align-middle"><img src="../i/icon/22.png" alt=""></span></th>
+                      <th id="wxs-len" scope="col"><span class="icon align-middle"><img src="../i/icon/23.png" alt=""></span></th>
+                      <th id="wxs-luka" scope="col"><span class="icon align-middle"><img src="../i/icon/24.png" alt=""></span></th>
+                      <th id="wxs-meiko" scope="col"><span class="icon align-middle"><img src="../i/icon/25.png" alt=""></span></th>
+                      <th id="wxs-kaito" scope="col"><span class="icon align-middle"><img src="../i/icon/26.png" alt=""></span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="wxs-vs-cool" scope="row"><span class="icon align-middle"><img src="../i/icon/cool.png" alt=""></span></th>
+                      <td id="cool-wxs-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-wxs-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-wxs-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-wxs-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-wxs-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-wxs-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="wxs-vs-cute" scope="row"><span class="icon align-middle"><img src="../i/icon/cute.png" alt=""></span></th>
+                      <td id="cute-wxs-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-wxs-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-wxs-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-wxs-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-wxs-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-wxs-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="wxs-vs-happy" scope="row"><span class="icon align-middle"><img src="../i/icon/happy.png" alt=""></span></th>
+                      <td id="happy-wxs-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-wxs-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-wxs-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-wxs-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-wxs-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-wxs-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="wxs-vs-mysterious" scope="row"><span class="icon align-middle"><img src="../i/icon/mysterious.png" alt=""></span></th>
+                      <td id="mysterious-wxs-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-wxs-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-wxs-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-wxs-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-wxs-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-wxs-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="wxs-vs-pure" scope="row"><span class="icon align-middle"><img src="../i/icon/pure.png" alt=""></span></th>
+                      <td id="pure-wxs-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-wxs-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-wxs-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-wxs-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-wxs-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-wxs-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="niigo-tab-pane" role="tabpanel" aria-labelledby="niigo-tab" tabindex="0">
+            <div class="row">
+              <div class="col">
+                <table class="table table-bordered table-sm align-middle unit-table">
+                  <thead>
+                    <tr>
+                      <th id="niigo" scope="col"><span class="icon align-middle"><img src="../i/icon/niigo.png" alt=""></span></th>
+                      <th id="kanade" scope="col"><span class="icon align-middle"><img src="../i/icon/17.png" alt=""></span></th>
+                      <th id="mafuyu" scope="col"><span class="icon align-middle"><img src="../i/icon/18.png" alt=""></span></th>
+                      <th id="ena" scope="col"><span class="icon align-middle"><img src="../i/icon/19.png" alt=""></span></th>
+                      <th id="mizuki" scope="col"><span class="icon align-middle"><img src="../i/icon/20.png" alt=""></span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="niigo-cool" scope="row"><span class="icon align-middle"><img src="../i/icon/cool.png" alt=""></span></th>
+                      <td id="cool-kanade" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-mafuyu" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-ena" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-mizuki" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="niigo-cute" scope="row"><span class="icon align-middle"><img src="../i/icon/cute.png" alt=""></span></th>
+                      <td id="cute-kanade" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-mafuyu" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-ena" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-mizuki" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="niigo-happy" scope="row"><span class="icon align-middle"><img src="../i/icon/happy.png" alt=""></span></th>
+                      <td id="happy-kanade" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-mafuyu" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-ena" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-mizuki" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="niigo-mysterious" scope="row"><span class="icon align-middle"><img src="../i/icon/mysterious.png" alt=""></span></th>
+                      <td id="mysterious-kanade" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-mafuyu" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-ena" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-mizuki" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="niigo-pure" scope="row"><span class="icon align-middle"><img src="../i/icon/pure.png" alt=""></span></th>
+                      <td id="pure-kanade" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-mafuyu" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-ena" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-mizuki" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="col">
+                <table class="table table-bordered table-sm align-middle vs-table">
+                  <thead>
+                    <tr>
+                      <th id="niigo-vs" scope="col"><span class="icon align-middle"><img src="../i/icon/niigo.png" alt=""></span><span class="icon align-middle"><img src="../i/icon/vs.png" alt=""></span></th>
+                      <th id="niigo-miku" scope="col"><span class="icon align-middle"><img src="../i/icon/21.png" alt=""></span></th>
+                      <th id="niigo-rin" scope="col"><span class="icon align-middle"><img src="../i/icon/22.png" alt=""></span></th>
+                      <th id="niigo-len" scope="col"><span class="icon align-middle"><img src="../i/icon/23.png" alt=""></span></th>
+                      <th id="niigo-luka" scope="col"><span class="icon align-middle"><img src="../i/icon/24.png" alt=""></span></th>
+                      <th id="niigo-meiko" scope="col"><span class="icon align-middle"><img src="../i/icon/25.png" alt=""></span></th>
+                      <th id="niigo-kaito" scope="col"><span class="icon align-middle"><img src="../i/icon/26.png" alt=""></span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="niigo-vs-cool" scope="row"><span class="icon align-middle"><img src="../i/icon/cool.png" alt=""></span></th>
+                      <td id="cool-niigo-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-niigo-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-niigo-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-niigo-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-niigo-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-niigo-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="niigo-vs-cute" scope="row"><span class="icon align-middle"><img src="../i/icon/cute.png" alt=""></span></th>
+                      <td id="cute-niigo-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-niigo-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-niigo-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-niigo-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-niigo-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-niigo-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="niigo-vs-happy" scope="row"><span class="icon align-middle"><img src="../i/icon/happy.png" alt=""></span></th>
+                      <td id="happy-niigo-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-niigo-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-niigo-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-niigo-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-niigo-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-niigo-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="niigo-vs-mysterious" scope="row"><span class="icon align-middle"><img src="../i/icon/mysterious.png" alt=""></span></th>
+                      <td id="mysterious-niigo-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-niigo-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-niigo-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-niigo-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-niigo-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-niigo-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="niigo-vs-pure" scope="row"><span class="icon align-middle"><img src="../i/icon/pure.png" alt=""></span></th>
+                      <td id="pure-niigo-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-niigo-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-niigo-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-niigo-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-niigo-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-niigo-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="vs-tab-pane" role="tabpanel" aria-labelledby="vs-tab" tabindex="0">
+            <div class="row">
+              <div class="col">
+                <table class="table table-bordered table-sm align-middle vs-table">
+                  <thead>
+                    <tr>
+                      <th id="vs" scope="col"><span class="icon align-middle"><img src="../i/icon/vs.png" alt=""></span></th>
+                      <th id="miku" scope="col"><span class="icon align-middle"><img src="../i/icon/21.png" alt=""></span></th>
+                      <th id="rin" scope="col"><span class="icon align-middle"><img src="../i/icon/22.png" alt=""></span></th>
+                      <th id="len" scope="col"><span class="icon align-middle"><img src="../i/icon/23.png" alt=""></span></th>
+                      <th id="luka" scope="col"><span class="icon align-middle"><img src="../i/icon/24.png" alt=""></span></th>
+                      <th id="meiko" scope="col"><span class="icon align-middle"><img src="../i/icon/25.png" alt=""></span></th>
+                      <th id="kaito" scope="col"><span class="icon align-middle"><img src="../i/icon/26.png" alt=""></span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th id="vs-cool" scope="row"><span class="icon align-middle"><img src="../i/icon/cool.png" alt=""></span></th>
+                      <td id="cool-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cool-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="vs-cute" scope="row"><span class="icon align-middle"><img src="../i/icon/cute.png" alt=""></span></th>
+                      <td id="cute-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="cute-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="vs-happy" scope="row"><span class="icon align-middle"><img src="../i/icon/happy.png" alt=""></span></th>
+                      <td id="happy-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="happy-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="vs-mysterious" scope="row"><span class="icon align-middle"><img src="../i/icon/mysterious.png" alt=""></span></th>
+                      <td id="mysterious-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="mysterious-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                    <tr>
+                      <th id="vs-pure" scope="row"><span class="icon align-middle"><img src="../i/icon/pure.png" alt=""></span></th>
+                      <td id="pure-miku" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-rin" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-len" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-luka" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-meiko" class="score-cell"><span class="score-span"></span></td>
+                      <td id="pure-kaito" class="score-cell"><span class="score-span"></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div id="loader" style="display: none; text-align: center;">Loading...</div>
+    <div class="card-container" id="proseka-cards">
+
+    </div>
+  </div>
+
+  <footer class="bg-dark text-center text-light">
+    Created by <a href="https://svenxiety.xyz">sven</a>. Project SEKAI &copy; CFM.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+
+</html>
